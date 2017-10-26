@@ -125,14 +125,7 @@ public class ArticleDetailFragment extends Fragment implements
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         mFab = mRootView.findViewById(R.id.share_fab);
         mToolbar = mRootView.findViewById(R.id.detail_toolbar);
-        /*mDrawInsetsFrameLayout =
-                mRootView.findViewById(R.id.draw_insets_frame_layout);*/
-/*        mDrawInsetsFrameLayout.setOnInsetsCallback(new DrawInsetsFrameLayout.OnInsetsCallback() {
-            @Override
-            public void onInsetsChanged(Rect insets) {
-                mTopInset = insets.top;
-            }
-        });*/
+
         if (mToolbar != null) {
             mToolbar.setNavigationIcon(R.drawable.ic_arrow_back);
             mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -143,16 +136,6 @@ public class ArticleDetailFragment extends Fragment implements
                 }
             });
         }
-/*        mScrollView = (ObservableScrollView) mRootView.findViewById(R.id.scrollview);
-        mScrollView.setCallbacks(new ObservableScrollView.Callbacks() {
-            @Override
-            public void onScrollChanged() {
-                mScrollY = mScrollView.getScrollY();
-                getActivityCast().onUpButtonFloorChanged(mItemId, ArticleDetailFragment.this);
-                mCollapsingToolbarLayout.setTranslationY((int) (mScrollY - mScrollY / PARALLAX_FACTOR));
-                updateStatusBar();
-            }
-        });*/
 
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         mCollapsingToolbarLayout = (CollapsingToolbarLayout) mRootView.findViewById(R.id.photo_container);
@@ -196,7 +179,6 @@ public class ArticleDetailFragment extends Fragment implements
                     (int) (Color.blue(mMutedColor) * 0.9));
         }
         mStatusBarColorDrawable.setColor(color);
-    /*    mDrawInsetsFrameLayout.setInsetBackground(mStatusBarColorDrawable);*/
     }
 
     static float progress(float v, float min, float max) {

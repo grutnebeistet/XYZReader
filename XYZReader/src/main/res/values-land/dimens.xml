@@ -7,6 +7,5 @@
     <dimen name="medium_padding">12dp</dimen>
     <dimen name="large_padding">16dp</dimen>
 
-    <dimen name="list_item_width">228dp</dimen>
-    <dimen name="list_item_height">286dp</dimen>
+    <dimen name="list_item_width">200dp</dimen>
 </resources>

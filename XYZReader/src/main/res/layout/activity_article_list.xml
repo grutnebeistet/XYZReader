@@ -1,0 +1,84 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6FFFF"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/no_connection_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="No Internet connection"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/empty_detail_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+               android:layout_centerInParent="true"
+                android:clipToPadding="false"
+                android:paddingBottom="28dp"
+                android:paddingLeft="@dimen/list_side_margin"
+                android:paddingRight="@dimen/list_side_margin"
+                android:paddingTop="@dimen/medium_padding"
+                android:scrollbarStyle="outsideOverlay" />
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+  <!--  <FrameLayout
+        android:id="@+id/toolbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@color/theme_primary"
+        android:elevation="8dp">-->
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/toolbar_container"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/theme_primary"
+            android:elevation="8dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity= "bottom"
+                android:layout_marginLeft="@dimen/list_toolbar_side_margin"
+                android:layout_marginRight="@dimen/list_toolbar_side_margin"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:theme="@style/AppTheme.AppBarOverlay">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/logo" />
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+  <!--  </FrameLayout>-->
+</android.support.design.widget.CoordinatorLayout>

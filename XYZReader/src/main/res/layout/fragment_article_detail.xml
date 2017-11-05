@@ -13,12 +13,6 @@
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <!--          <FrameLayout
-                      android:id="@+id/photo_container"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:background="@color/photo_placeholder">-->
-        <!--suppress AndroidLintContentDescription -->
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/photo_container"
             android:layout_width="match_parent"
@@ -123,7 +117,6 @@
                     android:layout_marginRight="@dimen/detail_inner_horiz_margin"
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
                     android:paddingBottom="@dimen/detail_body_bottom_margin"
-                    android:textColorLink="@color/theme_accent"
                     android:textSize="@dimen/detail_body_text_size" />
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
@@ -139,8 +132,6 @@
         android:layout_marginBottom="@dimen/fab_margin"
         android:layout_marginRight="@dimen/fab_margin"
         android:contentDescription="@string/action_share"
-        android:elevation="@dimen/fab_elevation"
-        android:src="@drawable/ic_share"
-        android:stateListAnimator="@animator/fab_state_list_anim" />
+        android:src="@drawable/ic_share"/>
 
 </android.support.design.widget.CoordinatorLayout>

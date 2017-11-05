@@ -9,6 +9,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -76,21 +77,31 @@ public class ArticleListActivity extends AppCompatActivity implements
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                getLoaderManager().initLoader(0, null, ArticleListActivity.this);
+                getLoaderManager().restartLoader(0, null, ArticleListActivity.this);
             }
         });
         ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         Boolean hasConnection = cm.getActiveNetworkInfo() != null;
         if (hasConnection) {
             getLoaderManager().initLoader(0, null, this);
+            findViewById(R.id.no_connection_textview).setVisibility(View.INVISIBLE);
+            ((ImageView) findViewById(R.id.empty_detail_iv)).setVisibility(View.INVISIBLE);
         } else {
             findViewById(R.id.no_connection_textview).setVisibility(View.VISIBLE);
             ((ImageView) findViewById(R.id.empty_detail_iv)).setImageResource(R.drawable.empty_detail);
+            showSnackbar(getString(R.string.load_failed));
         }
 
 
         if (savedInstanceState == null) {
             refresh();
+        }
+    }
+
+    private void showSnackbar(final String text) {
+        View container = findViewById(R.id.main_layout);
+        if (container != null) {
+            Snackbar.make(container, text, Snackbar.LENGTH_LONG).show();
         }
     }
 
